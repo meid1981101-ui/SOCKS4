@@ -17,6 +17,10 @@ jobs:
         with:
           ref: main
 
+      - name: Pull latest changes
+        run: |
+          git pull origin main --rebase
+
       - name: Fetch and update proxies
         run: |
           curl -s "https://raw.githubusercontent.com/VPSLabCloud/VPSLab-Free-Proxy-List/refs/heads/main/socks4_all.txt" > all.txt
@@ -29,11 +33,6 @@ jobs:
           curl -s "https://raw.githubusercontent.com/ALIILAPRO/Proxy/main/socks4.txt" >> all.txt
           curl -s "https://raw.githubusercontent.com/vmheaven/VMHeaven-Free-Proxy-Updated/main/socks4.txt" >> all.txt
           sort -u all.txt -o all.txt
-
-      - name: Pull latest changes
-        run: |
-          git fetch origin main
-          git rebase origin/main
 
       - name: Commit and push updated file
         run: |
