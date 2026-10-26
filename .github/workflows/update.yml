@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Fetch and update proxies
         run: |
@@ -29,7 +31,9 @@ jobs:
           sort -u all.txt -o all.txt
 
       - name: Pull latest changes
-        run: git pull origin main --rebase
+        run: |
+          git branch -u origin/main
+          git pull origin main --rebase
 
       - name: Commit and push updated file
         run: |
