@@ -32,7 +32,6 @@ jobs:
 
       - name: Pull latest changes
         run: |
-          git branch -u origin/main
           git pull origin main --rebase
 
       - name: Commit and push updated file
