@@ -38,6 +38,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Update SOCKS4 proxy list" || exit 0
+          date -u > timestamp.txt
+          git add all.txt timestamp.txt
+          git commit -m "Update SOCKS4 proxy list and keepalive timestamp" || exit 0
           git push origin main
