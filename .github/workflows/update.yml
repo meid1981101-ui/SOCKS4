@@ -23,15 +23,9 @@ jobs:
 
       - name: Fetch and update proxies
         run: |
-          curl -s "https://raw.githubusercontent.com/VPSLabCloud/VPSLab-Free-Proxy-List/refs/heads/main/socks4_all.txt" > all.txt
-          curl -s "https://www.flashproxy.com/api/proxies/txt?protocol=socks4&limit=2000" >> all.txt
-          curl -s "https://api.proxyscrape.com/v3/free-proxy-list/get?request=displayproxies&protocol=socks4&proxy_format=ipport&format=text&timeout=2000" >> all.txt
-          curl -s "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/socks4.txt" >> all.txt
-          curl -s "https://github.com/proxygenerator1/ProxyGenerator/raw/refs/heads/main/Stable/socks4.txt" >> all.txt
-          curl -s "https://github.com/Anonym0usWork1221/Free-Proxies/raw/refs/heads/main/proxy_files/socks4_proxies.txt" >> all.txt
-          curl -s "https://raw.githubusercontent.com/iplocate/free-proxy-list/refs/heads/main/protocols/socks4.txt" >> all.txt
-          curl -s "https://raw.githubusercontent.com/ALIILAPRO/Proxy/main/socks4.txt" >> all.txt
-          curl -s "https://raw.githubusercontent.com/vmheaven/VMHeaven-Free-Proxy-Updated/main/socks4.txt" >> all.txt
+          curl -s "https://proxyspace.pro/socks4.txt" > all.txt
+          curl -s "https://cdn.jsdelivr.net/gh/proxifly/free-proxy-list@main/proxies/protocols/socks4/data.txt" >> all.txt
+
           sort -u all.txt -o all.txt
 
       - name: Commit and push updated file
